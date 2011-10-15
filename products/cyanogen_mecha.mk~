@@ -28,7 +28,7 @@ PRODUCT_PACKAGES += Stk
 
 # Release name and versioning
 PRODUCT_RELEASE_NAME := Thunderbolt
-PRODUCT_VERSION_DEVICE_SPECIFIC := .2
+PRODUCT_VERSION_DEVICE_SPECIFIC :=
 -include vendor/cyanogen/products/common_versions.mk
 
 #
