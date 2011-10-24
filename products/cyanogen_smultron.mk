@@ -32,10 +32,21 @@ PRODUCT_PACKAGES += Torch
 # BCM FM radio
 #$(call inherit-product, vendor/cyanogen/products/bcm_fm_radio.mk)
 
-# Release name and versioning
-PRODUCT_RELEASE_NAME := XperiaMini-ST15i
-PRODUCT_VERSION_DEVICE_SPECIFIC :=
--include vendor/cyanogen/products/common_versions.mk
+#
+# Set ro.modversion
+#
+ifdef CYANOGEN_NIGHTLY
+    PRODUCT_PROPERTY_OVERRIDES += \
+        ro.modversion=CyanogenMod-7-$(shell date +%m%d%Y)-NIGHTLY-XperiaMini-ST15i
+else
+    ifdef CYANOGEN_RELEASE
+        PRODUCT_PROPERTY_OVERRIDES += \
+            ro.modversion=CyanogenMod-7.1.0.2-XperiaMini-ST15i
+    else
+        PRODUCT_PROPERTY_OVERRIDES += \
+            ro.modversion=CyanogenMod-7.1.0.2-XperiaMini-ST15i-KANG
+    endif
+endif
 
 #
 # Copy passion specific prebuilt files
